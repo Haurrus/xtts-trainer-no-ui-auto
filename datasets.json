@@ -1,0 +1,10 @@
+[
+  {
+    "path": "finetune_models/sk_english_femaledarkelf",
+    "activate": true
+  },
+  {
+    "path": "D:/Modelisation_IA/xtts-trainer-noui-auto/finetune_models/sk_english_femaledarkelf",
+    "activate": false
+  }
+]
