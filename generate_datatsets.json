@@ -1,0 +1,8 @@
+[
+  {
+    "name": "sk_test",
+    "audio_path": "D:\\Modelisation_IA\\xtts-trainer-noui-auto\\finetune_models\\sk_test\\test_wavs",
+    "language": "fr",
+    "activate": true
+  }
+]
