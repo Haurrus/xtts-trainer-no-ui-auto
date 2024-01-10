@@ -2,7 +2,6 @@ cutlet==0.3.0
 faster_whisper==0.10.0
 hangul_romanize==0.1.0
 num2words==0.5.13
-pandas==2.1.4
 pypinyin==0.50.0
 Requests==2.31.0
 spacy==3.7.2
