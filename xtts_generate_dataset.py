@@ -20,9 +20,10 @@ def preprocess_audio_dataset(audio_dir, target_language, whisper_version, out_pa
             audio_paths, 
             whisper_model=whisper_version, 
             target_language=target_language, 
-            out_path=named_out_path
+            out_path=named_out_path,
+            speaker_name=name
         )
-
+        print("ok3")
         # Check if total audio length is sufficient
         if audio_total_size < 120:
             return "The sum of the duration of the audios should be at least 2 minutes!"
@@ -45,6 +46,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     dataset_configs = load_dataset_config(args.config)
+    print(dataset_configs)
 
     # Set the base output path to 'output_datasets' in the current directory
     base_out_path = os.path.join(os.getcwd(), "output_datasets")

@@ -12,7 +12,7 @@ torch.set_num_threads(16)
 audio_types = (".wav", ".mp3", ".flac")
 
 
-def format_audio_list(audio_files, target_language="en", whisper_model="large-v3", out_path=None, eval_percentage=0.15, speaker_name="coqui"):
+def format_audio_list(audio_files, target_language="en", whisper_model="large-v3", out_path=None,speaker_name="coqui", eval_percentage=0.15):
     # Ensure that output directory and wavs subdirectory exist
     os.makedirs(out_path, exist_ok=True)
     wavs_path = os.path.join(out_path, "wavs")
@@ -71,6 +71,7 @@ def format_audio_list(audio_files, target_language="en", whisper_model="large-v3
 
     train_df.to_csv(train_metadata_path, sep='|', index=False)
     eval_df.to_csv(eval_metadata_path, sep='|', index=False)
+
 
     # Clean up resources
     del asr_model
