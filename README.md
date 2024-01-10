@@ -84,8 +84,8 @@ The configuration file should follow this format:
 	"name": "dataset_name"
         "audio_path": "path/to/audio/files",
         "language": "en",
-        "activate": true,
-    },
+        "activate": true
+    }
 ]
 ```
 
