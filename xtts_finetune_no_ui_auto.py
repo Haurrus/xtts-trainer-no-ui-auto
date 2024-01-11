@@ -143,22 +143,6 @@ if __name__ == "__main__":
         json_args = {}
 
     base_dir = Path(__file__).parent
-    # Accessing the arguments
-    num_epochs = json_args.get("num_epochs", 0)
-    batch_size = json_args.get("batch_size", 2)
-    grad_acumm = json_args.get("grad_acumm", 1)
-    max_audio_length = json_args.get("max_audio_length", 11)
-    language = json_args.get("language", "fr")
-    version = json_args.get("version", "main") or "main"
-    # Determine the path for custom model
-    custom_model = json_args.get("custom_model")
-    if not custom_model:
-        this_dir = Path(__file__).parent
-        download_model(this_dir, version)  # Ensure this function is defined in modeldownloader.py
-        custom_model = this_dir / f'models/{version}/model.pth'
-    else:
-        custom_model = Path(custom_model)
-    custom_model = str(custom_model)
     # Read dataset queue from datasets.json
     dataset_queue = read_dataset_queue(args.datasets_json) if args.datasets_json else []
     for dataset_path_str in dataset_queue:
@@ -167,6 +151,25 @@ if __name__ == "__main__":
             dataset_path = base_dir / dataset_path
         try:
             train_csv, eval_csv, current_language = load_params(dataset_path)
+            # Accessing the arguments
+            version = json_args.get("version", "main") or "main"
+            num_epochs = json_args.get("num_epochs", 0)
+            batch_size = json_args.get("batch_size", 2)
+            grad_acumm = json_args.get("grad_acumm", 1)
+            max_audio_length = json_args.get("max_audio_length", 11)
+            language = json_args.get("language", "fr")
+            
+            # Determine the path for custom model
+            custom_model = json_args.get("custom_model")
+            if not custom_model:
+                this_dir = Path(__file__).parent
+                download_model(this_dir, version)  # Ensure this function is defined in modeldownloader.py
+                custom_model = this_dir / f'models/{version}/model.pth'
+            else:
+                custom_model = Path(custom_model)
+            custom_model = str(custom_model)
+            
+            # Determine the number of epochs
             if num_epochs == 0:
                 total_samples = count_samples_in_csv(train_csv)
                 print(f"Number of total_samples : {total_samples}")
