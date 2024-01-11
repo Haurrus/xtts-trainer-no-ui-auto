@@ -175,8 +175,10 @@ if __name__ == "__main__":
                 print(f"Number of total_samples : {total_samples}")
                 if total_samples > 1000:
                     target_steps = 30000
-                elif 100 <= total_samples < 1000:
+                elif 600 <= total_samples < 1000:
                     target_steps = 20000
+                elif 250 <= total_samples < 600:
+                    target_steps = 15000
                 else:
                     target_steps = 10000
                 num_epochs = calculate_epochs(total_samples, batch_size, target_steps)
