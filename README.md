@@ -51,7 +51,7 @@ To train models you need a dataset, there's an exemple dataset in the finetune_m
 ### Running the Script
 Execute the script with the following command:
 ```
-python xtts_finetune_noweb_auto.py --args_json path/to/args.json --datasets_json path/to/datasets.json
+python xtts_finetune_no_ui_auto.py --args_json path/to/args.json --datasets_json path/to/datasets.json
 ```
 
 ## Features
