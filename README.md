@@ -81,7 +81,7 @@ The configuration file should follow this format:
 ```json
 [
     {
-	"name": "dataset_name"
+	"name": "dataset_name",
         "audio_path": "path/to/audio/files",
         "language": "en",
         "activate": true
